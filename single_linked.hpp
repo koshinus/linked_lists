@@ -19,7 +19,6 @@ public:
     single_linked(): base_list<T>()//: base_list<T>::base_list(), dynamic_cast<double_list_elem<T> *>(top)// {};
     {
         base_list<T>::top = new single_list_elem<T>();
-        base_list<T>::l_size = 0;
     }
     virtual void add_elem(const T &elem)
     {

@@ -19,9 +19,9 @@ class base_list
 protected:
     list_elem<T> *top;
     size_t l_size;
-    inline void next_elem() { top = top->get_next(); }
+    void next_elem() { top = top->get_next(); }
 public:
-    base_list();
+    base_list(): l_size(0) {};
     ~base_list() {};
     bool is_empty() const { return top == nullptr && l_size == 0; };
     virtual size_t size() { return l_size; };

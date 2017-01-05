@@ -20,8 +20,7 @@ public:
     //virtual inline size_t list_size() { return size; }
     double_linked(): base_list<T>()//: base_list<T>::base_list() {};
     {
-        top = new double_list_elem<T>();
-        l_size = 0;
+        base_list<T>::top = new double_list_elem<T>();
     }
     virtual void add_elem(const T &elem)
     {
