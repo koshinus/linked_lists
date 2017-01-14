@@ -5,19 +5,19 @@
 //
 int main()
 {
-    single_linked<int> l;
-    if (l.is_empty()) for (int i = 1; i<5; i++) l.add_elem(i);
-    //singleLinkedList <int> ll = rev(l);
-    single_linked <int> ll;
-    if (ll.is_empty()) for (int i = 4; i<4; i++) ll.add_elem(i);
-    l.show();
+    single_linked<int> *l = new single_linked<int>();
+    if (l->is_empty()) for (int i = 1; i<5; i++) l->add_elem(i);
+    single_linked <int> ll(*l);
+    ll.show();
     std::cout << "\n";
-    l.reverse();
-    l.show();
+    l->reverse();
+    l->show();
     std::cout << "\n";
-    l.del_elem();
-    l.show();
-    std::cout << "\n" << l.size() << "\n";
-    l = ll;
+    for(int i = 0; i < 5; i++) l->del_elem();
+    l->show();
+    std::cout << "\n" << l->size() << "\n";
+    *l = ll;
+    l->show();
+    delete l;
     return 0;
 }

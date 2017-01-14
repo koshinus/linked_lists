@@ -29,7 +29,22 @@ public:
         //new_el->set_next(base_list<T>::top);
         base_list<T>::top = new_el;
         base_list<T>::l_size++;
+    };
+
+    single_linked(base_list<T> &l)
+    {
+        base_list<T>::top = nullptr;
+        base_list<T>::l_size = 0;
+        list_elem<T> *start_l = l.top;
+        while (l.top != nullptr)
+        {
+            add_elem(l.top->get_elem());
+            l.next_elem();
+        }
+        l.top = start_l;
+        base_list<T>::reverse();
     }
+
     ~single_linked()
     {
         list_elem<T> *cur_el;
@@ -38,7 +53,7 @@ public:
             cur_el = base_list<T>::top->get_next();
             delete base_list<T>::top;
             base_list<T>::top = cur_el;
-            //std::cout << "deleted\n";
+            std::cout << "deleted\n";
         }
     }
 };

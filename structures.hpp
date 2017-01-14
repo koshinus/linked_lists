@@ -19,8 +19,6 @@ public:
     virtual void set_elem(T _el)  = 0;
     virtual list_elem * get_next() = 0;
     virtual void set_next(list_elem *_next) = 0;
-    //inline virtual list_elem * get_prev() {};
-    //inline virtual void set_prev() {};
 };
 
 template <typename T>
