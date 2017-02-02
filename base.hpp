@@ -25,6 +25,8 @@ public:
     bool is_empty() const { return top == nullptr && l_size == 0; };
     virtual size_t size() { return l_size; };
     virtual void add_elem(const T &elem) = 0;
+    virtual list_elem<T> * get_top() { return top; };
+    virtual void set_top(list_elem<T> *_top) { top = _top; }
 
     void show()						//выводим список
     {

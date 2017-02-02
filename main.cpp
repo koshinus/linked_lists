@@ -7,10 +7,14 @@ int main()
 {
     single_linked<int> *l = new single_linked<int>();
     if (l->is_empty()) for (int i = 1; i<5; i++) l->add_elem(i);
-    single_linked <int> ll(*l);
+    l->show();
+    std::cout << "\n";
+    single_linked <int> ll(l);
     ll.show();
     std::cout << "\n";
-    l->reverse();
+    ll.reverse();
+    ll.show();
+    std::cout << "\n";
     l->show();
     std::cout << "\n";
     for(int i = 0; i < 5; i++) l->del_elem();
@@ -18,6 +22,7 @@ int main()
     std::cout << "\n" << l->size() << "\n";
     *l = ll;
     l->show();
+    std::cout << "\n";
     delete l;
     return 0;
 }

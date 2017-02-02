@@ -45,15 +45,34 @@ public:
         base_list<T>::reverse();
     }
 
+    single_linked(base_list<T> *l)
+    {
+        base_list<T>::top = nullptr;
+        base_list<T>::l_size = 0;
+        list_elem<T> *start_l = l->get_top();
+        list_elem<T> *l_top = start_l;
+        while (l_top != nullptr)
+        {
+            add_elem(l_top->get_elem());
+            l_top = l_top->get_next();
+            //add_elem(l->get_top()->get_elem());
+            //l->set_top(l->get_top()->get_next());//next_elem();
+        }
+        l->set_top(start_l);
+        base_list<T>::reverse();
+    }
+
     ~single_linked()
     {
-        list_elem<T> *cur_el;
-        while (base_list<T>::top != nullptr)
+        list_elem<T> *cur_el = base_list<T>::top;
+        while (cur_el != nullptr)
         {
             cur_el = base_list<T>::top->get_next();
+            std::cout << cur_el->get_next() << std::endl;
             delete base_list<T>::top;
             base_list<T>::top = cur_el;
-            std::cout << "deleted\n";
+            //std::cout << base_list<T>::top << std::endl;
+            //std::cout << "deleted\n";
         }
     }
 };
